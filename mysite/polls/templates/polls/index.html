@@ -1,0 +1,11 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {# this pre-defines the url path using the question id. It will link to the detail view. This works because we specifified the URL definition 'details' in the polls.urls #}
+        <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a>
+</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
